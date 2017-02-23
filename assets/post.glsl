@@ -43,13 +43,13 @@ void main() {
     // vec3 texcolor = RGBsampleSplit(tex0, tcoord); //our program output
     // vec3 texcolor1 = RGBsampleSplit(tex1, tcoord); //our texture
     
-    vec3 texcolor = texture2D(tex0, tcoord).rgb; //our texture
-    vec3 texcolor1 = texture2D(tex1, tcoord).rgb; //our texture
+    vec4 texcolor = texture2D(tex0, tcoord).rgba; //our texture
+    vec3 texcolor1 = texture2D(tex1, tcoord).rgb; //our overlay texture
 
     //texture overlay
     vec3 color = blendOverlay(texcolor.rgb, texcolor1.rgb);// blend mode
 
-    vec4 texColor = vec4(color, 1.0);
+    vec4 texColor = vec4(color, texcolor.a);
     //1. VIGNETTE
 
     //determine center position
