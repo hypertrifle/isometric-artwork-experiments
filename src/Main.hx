@@ -69,9 +69,9 @@ class Main extends luxe.Game {
     override function config(config:GameConfig) {
 
         config.window.title = 'luxe game';
-        // config.window.width = 960;
-        // config.window.height = 630;
-        config.window.fullscreen = true;
+        config.window.width = 960;
+        config.window.height = 630;
+        config.window.fullscreen = false;
 
         config.preload.textures.push({ id:'assets/01.jpg' });
         config.preload.textures.push({ id:'assets/07.jpg' });
@@ -159,7 +159,7 @@ class Main extends luxe.Game {
 
 
         //initilise our objects
-        gridSize = 40;
+        gridSize = 30;
         currentTime = 0;
         animationTime = 5; //Seconds?
 
@@ -291,17 +291,17 @@ class Main extends luxe.Game {
         // pow /= 2; // tend it more towards jedi
 
         //select a patter
-        pattern = pattern_model.cubeOne;
+        pattern = pattern_model.triangleIllusion;
         patternHeight = pattern.length;
         patternWidth = pattern[0].length;
 
         var cellPatternVal;
 
         //get the pattern of the tri from our model (with repeating pattern)
-         cellPatternVal = (isBottomLeft)? pattern[y%patternHeight][x%patternWidth][0] : pattern[y%patternHeight][x%patternWidth][1] ; 
+         // cellPatternVal = (isBottomLeft)? pattern[y%patternHeight][x%patternWidth][0] : pattern[y%patternHeight][x%patternWidth][1] ; 
 
         //get the pattern of the tri from our model (but center it) this is pretty hacky should re-write.
-        /*var minY = Math.ceil(gridHeight/2 - patternHeight/2);
+        var minY = Math.ceil(gridHeight/2 - patternHeight/2);
         var maxY = Math.ceil(gridHeight/2 + patternHeight/2);
 
         var minX = Math.ceil(gridWidth/2 + gridHeight/4 - patternWidth/2 - patternHeight/4);
@@ -315,7 +315,7 @@ class Main extends luxe.Game {
         } else {
             cellPatternVal = 0;
 
-        }*/
+        }
 
         return cellPatternVal;
 
